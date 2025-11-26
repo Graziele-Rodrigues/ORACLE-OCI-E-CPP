@@ -29,7 +29,7 @@ void CconectarOracle()
     //2. Aloca um handle de erro
     OCIHandleAlloc(g_env, (void**)&g_err, OCI_HTYPE_ERROR, 0, 0);
 
-    //3. Criar o contexto (conex„o)
+    //3. Criar o contexto (conex√£o)
     OCIHandleAlloc(g_env, (void**)&g_svc, OCI_HTYPE_SVCCTX, 0, 0);
 
     //4. Login
@@ -39,7 +39,7 @@ void CconectarOracle()
             g_env, g_err, &g_svc,
             (OraText*)"user", 6, //usuario
             (OraText*)"senha", 8, //senha
-            (OraText*)"localhost/XE", 12 //string de conex„o
+            (OraText*)"localhost/XE", 12 //string de conex√£o
         )
     );
     cout << "Conetado ao Oracle com sucesso!" << endl;
@@ -126,7 +126,7 @@ void listarAlunos() {
             OCI_NTV_SYNTAX, OCI_DEFAULT)
     );
 
-    // Definir saÌda para ID
+    // Definir sa√≠da para ID
     sb4 idValor;
     checkerr(g_err,
         OCIDefineByPos(stmt, &defId, g_err,
@@ -134,7 +134,7 @@ void listarAlunos() {
             SQLT_INT, nullptr, nullptr, nullptr, OCI_DEFAULT)
     );
 
-    // Definir saÌda para Nome
+    // Definir sa√≠da para Nome
     char nomeBuf[101] = { 0 };
     checkerr(g_err,
         OCIDefineByPos(stmt, &defNome, g_err,
@@ -142,7 +142,7 @@ void listarAlunos() {
             SQLT_STR, nullptr, nullptr, nullptr, OCI_DEFAULT)
     );
 
-    // Definir saÌda para Email
+    // Definir sa√≠da para Email
     char emailBuf[101] = { 0 };
     checkerr(g_err,
         OCIDefineByPos(stmt, &defEmail, g_err,
@@ -233,8 +233,8 @@ int main() {
         err,
         OCILogon(
             env, err, &g_svc,
-            (OraText*)"SYSTEM", 6, //user
-            (OraText*)"25092012", 8, //senha
+            (OraText*)"user", 6, //user
+            (OraText*)"senha", 8, //senha
             (OraText*)"localhost/XE", 12 //string conexao
         )
     );
